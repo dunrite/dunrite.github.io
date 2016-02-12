@@ -1,1 +1,1 @@
-"# use gh-pages branch to edit website" 
+# use gh-pages branch to edit website
