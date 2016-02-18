@@ -5,7 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Theme Template for Bootstrap</title>
+    <title>dunrite apps</title>
+      
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png"/>
+    <!--facebook stuff-->
+    <meta itemprop="name" content="dunriteapps.com">
+    <meta property="og:description" content=""/>
+    <meta property="og:image" content="images/graph.png"/>
+    <meta name="description" content="" />
+    <meta name="keywords" content="dunrite, apps, dunrite apps, android" />
+    <!-- Chrome for Android theme color -->
+    <meta name="theme-color" content="#606a6a">
+    <!-- Tile color for Win8 -->
+    <meta name="msapplication-TileColor" content="#606a6a">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="PSK">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="dunrite apps">
+    <link rel="apple-touch-icon" href="">
+    <!-- Tile icon for Win8 (144x144) -->
+    <meta name="msapplication-TileImage" content="">
       
     <!-- Material Design fonts -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
@@ -13,69 +36,141 @@
 
     <!-- Bootstrap core CSS -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+      
     <!-- Bootstrap Material theme -->
     <link href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css" rel="stylesheet">
     <link href="bower_components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
       
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="bower_components/bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Dropdown.js -->
+    <link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
+    <!--jquery-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 
     <!-- Custom styles for this template -->
     <link href="theme.css" rel="stylesheet">
-
   </head>
-
   <body role="document">
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
+          <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Bootstrap theme</a>
+          <a href="" class="navbar-brand"><img style="max-width:100px; margin-top: 2px;" src="images/headerlogo.png"></a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <nav class="collapse navbar-collapse" role="navigation">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
+            <li data-target="#apps"><a>Apps</a></li>
+            <li data-target="#projects"><a>Projects</a></li>
+            <li data-target="#about"><a>About</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </nav>
       </div>
-    </nav>
+    </div>
+   
+    <div id="content_space" style="padding-top: 50px;"></div>
+    <!--home page  -->  
+    <div class="well page active" id="home">
+      <h1 class="header">HOME</h1>
+    </div>
+    <!--apps page  -->
+    <div class="well page" id="apps">
+      <h1 class="header">APPS</h1>
+    </div>
+    <!--projects page  -->
+    <div class="well page" id="projects">
+      <h1 class="header">PROJECTS</h1>
+    </div>
+    <!--about page  -->
+    <div class="well page" id="about">
+      <h1 class="header">ABOUT</h1>
+    </div>
       
       
 
+    <script>
+      window.page = window.location.hash || "#home";
+
+      $(document).ready(function () {
+        if (window.page != "#home") {
+          $(".nav").find("li[data-target=" + window.page + "]").trigger("click");
+        }
+      });
+
+      $(window).on("resize", function () {
+        $("html, body").height($(window).height());
+        $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight());
+        $(".pages").height($(window).height());
+      }).trigger("resize");
+
+      $(".nav li").click(function () {
+        // Menu
+        if (!$(this).data("target")) return;
+        if ($(this).is(".active")) return;
+        $(".nav li").not($(this)).removeClass("active");
+        $(".page").not(page).removeClass("active").hide();
+        window.page = $(this).data("target");
+        var page = $(window.page);
+        window.location.hash = window.page;
+        $(this).addClass("active");
+
+        page.show();
+
+        var totop = setInterval(function () {
+          $(".pages").animate({scrollTop: 0}, 0);
+        }, 1);
+
+        setTimeout(function () {
+          page.addClass("active");
+          setTimeout(function () {
+            clearInterval(totop);
+          }, 1000);
+        }, 100);
+      });
+
+      function cleanSource(html) {
+        var lines = html.split(/\n/);
+
+        lines.shift();
+        lines.splice(-1, 1);
+
+        var indentSize = lines[0].length - lines[0].trim().length,
+            re = new RegExp(" {" + indentSize + "}");
+
+        lines = lines.map(function (line) {
+          if (line.match(re)) {
+            line = line.substring(indentSize);
+          }
+
+          return line;
+        });
+
+        lines = lines.join("\n");
+
+        return lines;
+      }
+
+      $("#opensource").click(function () {
+        $.get(window.location.href, function (data) {
+          var html = $(data).find(window.page).html();
+          html = cleanSource(html);
+          $("#source-modal pre").text(html);
+          $("#source-modal").modal();
+        });
+      });
+    </script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    
+    <!-- Placed at the end of the document so the pages load faster -->  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="bower_components/jquery/assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>
     <script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
     <script> $.material.init();</script>
-    <script src="bower_components/bootstrap/assets/js/docs.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="bower_components/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
-      
     <!-- Dropdown.js -->
     <script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
       <script>
