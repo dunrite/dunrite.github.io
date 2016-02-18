@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+.navbar, .navbar.navbar-default {
+    background-color: #606a6a;
+}
+
 .header-panel {
     background-color: #009587;
     height: 144px;
