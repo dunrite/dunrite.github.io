@@ -20,12 +20,12 @@
     <meta name="msapplication-TileColor" content="#606a6a">
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="PSK">
-    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+    <meta name="application-name" content="dunrite">
+    <link rel="icon" sizes="192x192" href="">
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="dunrite apps">
+    <meta name="apple-mobile-web-app-title" content="dunrite">
     <link rel="apple-touch-icon" href="">
     <!-- Tile icon for Win8 (144x144) -->
     <meta name="msapplication-TileImage" content="">
@@ -72,26 +72,68 @@
       </div>
     </div>
    
-    <div id="content_space" style="padding-top: 50px;"></div>
-    <!--home page  -->  
-    <div class="well page active" id="home">
-      <h1 class="header">HOME</h1>
-    </div>
-    <!--apps page  -->
-    <div class="well page" id="apps">
-      <h1 class="header">APPS</h1>
-    </div>
-    <!--projects page  -->
-    <div class="well page" id="projects">
-      <h1 class="header">PROJECTS</h1>
-    </div>
-    <!--about page  -->
-    <div class="well page" id="about">
-      <h1 class="header">ABOUT</h1>
+    <div id="content_space" style="padding-top: 70px;"></div>
+    <div class="container-fluid">
+        <!--home page  -->  
+        <div class="page active" id="home">
+          <h1 class="header">HOME</h1>
+        </div>
+        <!--apps page  -->
+        <div class="page" id="apps">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Here are our currently released apps. There are no ads, because we hate them just as much as you do.</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well well-lg">
+                        <h2>Xpaper</h2>
+                        <p><div class="btn-group btn-group-justified" style="margin-bottom: -35px;">
+                          <a href="javascript:void(0)" class="btn">Description</a>
+                          <a href="https://goo.gl/Hiz6ma" class="btn">Download</a>
+                          <a href="javascript:void(0)" class="btn">Github</a>
+                        </div></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well well-lg">
+                        <h2>nowPaper</h2>
+                        <p><div class="btn-group btn-group-justified" style="margin-bottom: -35px;">
+                          <a href="javascript:void(0)" class="btn">Description</a>
+                          <a href="javascript:void(0)" class="btn">Download</a>
+                          <a href="javascript:void(0)" class="btn">Github</a>
+                        </div></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well well-lg">
+                        <h2>Blox</h2>
+                        <p><div class="btn-group btn-group-justified" style="margin-bottom: -35px;">
+                          <a href="javascript:void(0)" class="btn">Description</a>
+                          <a href="javascript:void(0)" class="btn">Download</a>
+                        </div></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--projects page  -->
+        <div class="page" id="projects">
+          <h1 class="header">PROJECTS</h1>
+        </div>
+        <!--about page  -->
+        <div class="page" id="about">
+          <h1 class="header">ABOUT</h1>
+        </div>
     </div>
       
-      
-
     <script>
       window.page = window.location.hash || "#home";
 
