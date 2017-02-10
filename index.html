@@ -436,7 +436,9 @@
     <script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
     <script>
         $("#dropdown-menu select").dropdown();
-
+        $('.navbar-collapse a').click(function(){
+             $(".navbar-collapse").collapse('hide');
+        });
     </script>
 </body>
 
